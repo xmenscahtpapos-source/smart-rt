@@ -1,0 +1,74 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%; /* Light soft blue-gray bg */
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 157 56% 40%; /* Emerald Green */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 176 56% 38%; /* Deep Teal */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 157 56% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 157 56% 40%;
+    --radius: 2rem; /* Larger radius for modern mobile look */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body select-none overflow-x-hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Modern Mobile UI Utilities */
+.android-shadow {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.grid-menu-item {
+  @apply flex flex-col items-center justify-center p-4 bg-white rounded-[2rem] transition-all active:scale-90 android-shadow border border-white/50;
+}
+
+.h-18 {
+  height: 4.5rem;
+}
+
+/* Animations for Mobile */
+.active-scale:active {
+  transform: scale(0.95);
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out forwards;
+}
